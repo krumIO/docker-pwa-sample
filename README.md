@@ -9,5 +9,7 @@ In this case, the Dockerfile contains the dependencies to run the application. I
 
 ## Pulling
 This image can be pulled and run from `krumware/docker-pwa-sample`
+
  -or-
+ 
 `docker-compose pull`
