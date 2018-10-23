@@ -1,0 +1,27 @@
+version: '3'
+services:
+  polymer:
+    image: krumware/docker-pwa-sample:latest
+    # image: krumware/docker-pwa-sample:small # use smaller image
+    ports:
+      - 8081:8081
+    environment:
+      - VIRTUAL_PORT=8081
+      - VIRTUAL_HOST=docker.localhost
+      # - NODE_ENV=production
+    networks:
+      - web
+
+  nginx-proxy-pwa:
+    image: krumware/nginx-proxy-pwa
+    ports:
+      - "8443:443"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+      - ./certs:/etc/nginx/certs
+    networks:
+      - web
+
+networks:
+  web:
+    driver: bridge

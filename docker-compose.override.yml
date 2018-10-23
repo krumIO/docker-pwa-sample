@@ -1,0 +1,13 @@
+version: '3'
+services:
+  polymer:
+  ##UNCOMMENT THIS BLOCK IF YOU BUILD AND INSTALL LOCALLY (DEV)
+    # build: .
+    volumes:
+      # - "./my-app/src:/my-app/src" # for standard image
+      # - "./my-app/src:/root/my-app/src" # for slim image
+  ##END COMMENT BLOCK
+    environment:
+      # NODE_ENV: 'production'
+      DEBUG: 'true'
+      PORT: 8081
