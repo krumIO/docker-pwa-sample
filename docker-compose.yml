@@ -1,6 +1,6 @@
 version: '3'
 services:
-  polymer:
+  pwa-starter:
     image: krumware/docker-pwa-sample:latest
     # image: krumware/docker-pwa-sample:small # use smaller image
     ports:
@@ -12,15 +12,16 @@ services:
     networks:
       - web
 
-  nginx-proxy-pwa:
-    image: krumware/nginx-proxy-pwa
-    ports:
-      - "8443:443"
-    volumes:
-      - /var/run/docker.sock:/tmp/docker.sock:ro
-      - ./certs:/etc/nginx/certs
-    networks:
-      - web
+  ## Uncomment below service to include the load balancer as referenced in the Readme.
+  # nginx-proxy-pwa:
+  #   image: krumware/nginx-proxy-pwa
+  #   ports:
+  #     - "8443:443"
+  #   volumes:
+  #     - /var/run/docker.sock:/tmp/docker.sock:ro
+  #     - ./certs:/etc/nginx/certs
+  #   networks:
+  #     - web
 
 networks:
   web:
