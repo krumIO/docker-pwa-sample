@@ -1,6 +1,6 @@
 version: '3'
 services:
-  polymer:
+  pwa-starter:
   ##UNCOMMENT THIS BLOCK IF YOU BUILD AND INSTALL LOCALLY (DEV)
     # build: .
     # volumes:
