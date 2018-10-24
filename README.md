@@ -32,7 +32,10 @@ Add your certs to a new folder at the project root directory of `/certs`
 
 ## More Notes:
 
-To preserve the sample, `my-app` and the folder `/certs` have been added to a .gitignore file.
+To preserve the sample, `my-app` and the folder `/certs` have been added to a .gitignore file. If you are wondering why your changes to my-app are not commitable or bing picked up by Git, this is probably the reason.
 
-If you are wondering why your changes to my-app are not commitable or bing picked up by Git, this is probably the reason.
-
+If on windows and seeing the error: `'Mount denied:\nThe source path "\\\\var\\\\run\\\\docker.sock:/tmp/docker.sock"\nis not a valid Windows path'`.
+ - As of 10/24/2018, there is still a bug in docker-compose for windows. A fix has made it to the Edge channel of docker, but is not yet in stable.
+ - For a workaround, it is recommended by Docker that windows users always set the environment variable `COMPOSE_CONVERT_WINDOWS_PATHS=1`.
+ - This can be accomplished directly in your powershell or bash, or via a .env file. We have included the .env file as a sample.
+ - Ref: [https://docs.docker.com/compose/reference/envvars/#compose_convert_windows_paths](https://docs.docker.com/compose/reference/envvars/#compose_convert_windows_paths)
