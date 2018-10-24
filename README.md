@@ -3,6 +3,8 @@
 
 UI Service is based on: [PWA Starter Kit](https://polymer.github.io/pwa-starter-kit/setup/)
 
+Slides from the Intro to Containers talk are available at [Intro to Containers.pdf](extras/Intro%20to%20containers.pdf) 
+
 ## Running Locally:
 We have already published an image to our docker registry, which is publicly available. <br>
 This can be pulled using `docker pull krumware/docker-pwa-sample:latest`.
