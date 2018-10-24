@@ -5,12 +5,22 @@ UI Service is based on: [PWA Starter Kit](https://polymer.github.io/pwa-starter-
 
 ## Running Locally:
 We have already published an image to our docker registry, which is publicly available. <br>
-This can be pulled using `docker pull krumware/docker-pwa-sample`.
+This can be pulled using `docker pull krumware/docker-pwa-sample:latest`.
 
-To run, use `docker run krumware/docker-pwa-sample` <br>
+To run, use `docker run krumware/docker-pwa-sample:latest` <br>
+Press `ctrl`+`c`, to detach from the process.
+
 You'll notice that if we hit the local address http://localhost:8081, it is inaccessible. This is because we have not yet _published_ that port to the local system. We need to use the -p argument to tell docker to assign the binding of `{ourport}:{containerport}`<br>
 
-Try to run again using `docker run -p 8081:8081 krumware/docker-pwa-sample`
+So, now lets stop the container. We need to find the container ID.
+1. try `docker ps`. This will list the containers.<br>
+```
+CONTAINER ID        IMAGE                               COMMAND                  CREATED             STATUS              PORTS               NAMES
+0383669806f7        krumware/docker-pwa-sample:latest   "npm start -- --host…"   8 seconds ago       Up 6 seconds        8081/tcp            nostalgic_varahamihira
+```
+2. Use `docker stop {containerID}` so in this case `docker stop 0383669806f7` or shorthand `docker stop 038`
+
+Now, try to run again using `docker run -p 8081:8081 krumware/docker-pwa-sample:latest`
 
 ## Building Locally:
 
@@ -27,6 +37,12 @@ If we include a docker-compose.override.yml file we separate our "development" c
 
 Instead of `docker run ...` Try running `docker-compose up`.<br>
 This will launch the service with the publish options already defined. (You can see these defined in docker-compose.yml)
+
+So, several command to know here:
+ - `docker-compose up` - run and _attach_. (When we use `ctrl`-`c`, the services will be stopped)
+ - `docker-compose up -d` - run _detached_
+ - `docker-compose stop` - stop the services defined in docker-compose
+ - `docker-compose build` - build the services defined in docker-compose (uncomment the `build .` line in the docker-compose.override.yml)
 
 Now, assuming you have already cloned the files referenced in the section above. Try uncommenting the sections noted in the **docker-compose.override.yml** file, which include the volume mounts.<br>
 NOTE: only one of the volume mounts is necessary. There is an additional volume mount which is used as a sample for the slim image.
