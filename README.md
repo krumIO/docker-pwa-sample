@@ -31,6 +31,23 @@ This will launch the service with the publish options already defined. (You can 
 Now, assuming you have already cloned the files referenced in the section above. Try uncommenting the sections noted in the **docker-compose.override.yml** file, which include the volume mounts.<br>
 NOTE: only one of the volume mounts is necessary. There is an additional volume mount which is used as a sample for the slim image.
 
+Your file should now look like this:
+```
+version: '3'
+services:
+  pwa-starter:
+  ##UNCOMMENT THIS BLOCK IF YOU BUILD AND INSTALL LOCALLY (DEV)
+    # build: .
+    volumes:
+      - "./my-app/src:/my-app/src" # for standard image
+      # - "./my-app/src:/root/my-app/src" # for slim image, you can see the usage of /root in the second build stage of the Dockerfile.
+  ##END COMMENT BLOCK
+    environment:
+      # NODE_ENV: 'production'
+      DEBUG: 'true'
+      PORT: 8081
+```
+
 ## Running multiple services and extra options
 What if we want to run a load balancer, one that supports SSL termination for us in development?
 
