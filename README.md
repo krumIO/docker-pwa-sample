@@ -48,6 +48,10 @@ services:
       PORT: 8081
 ```
 
+Run `docker-compose up`
+Now, try making changes to the file `my-app/src/components/my-app.js`. I changed `>View One<` to `>View Awesome<`.<br>
+Refresh the browser, no need to stop and start docker-compose!
+
 ## Running multiple services and extra options
 What if we want to run a load balancer, one that supports SSL termination for us in development?
 
