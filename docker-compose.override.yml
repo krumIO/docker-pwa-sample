@@ -3,9 +3,9 @@ services:
   polymer:
   ##UNCOMMENT THIS BLOCK IF YOU BUILD AND INSTALL LOCALLY (DEV)
     # build: .
-    volumes:
+    # volumes:
       # - "./my-app/src:/my-app/src" # for standard image
-      # - "./my-app/src:/root/my-app/src" # for slim image
+      # - "./my-app/src:/root/my-app/src" # for slim image, you can see the usage of /root in the second build stage of the Dockerfile.
   ##END COMMENT BLOCK
     environment:
       # NODE_ENV: 'production'
